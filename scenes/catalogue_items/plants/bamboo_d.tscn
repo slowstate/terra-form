@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://v0g28l6vg4pw"]
+
+[ext_resource type="Script" path="res://scripts/placeable.gd" id="1_ens3f"]
+[ext_resource type="Texture2D" uid="uid://gbtiflg8tbpn" path="res://assets/plants/bamboo_d.png" id="2_pyhrk"]
+[ext_resource type="Script" path="res://scripts/placeable_footprint.gd" id="3_c24mb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sos1n"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j0lwg"]
+radius = 4.0
+
+[node name="BambooD" type="StaticBody2D"]
+script = ExtResource("1_ens3f")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(20, 28)
+shape = SubResource("CircleShape2D_sos1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("2_pyhrk")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(15, 31)
+script = ExtResource("3_c24mb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_j0lwg")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="placement_eligibility_changed" from="Area2D" to="." method="_on_area_2d_placement_eligibility_changed"]

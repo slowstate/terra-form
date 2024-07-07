@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw3dxywjebk8u"]
+
+[ext_resource type="Script" path="res://scripts/placeable.gd" id="1_oeghy"]
+[ext_resource type="Texture2D" uid="uid://b0tpv4oiedeu6" path="res://assets/objects/rock_b.png" id="2_f65ia"]
+[ext_resource type="Script" path="res://scripts/placeable_footprint.gd" id="3_nyljm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sos1n"]
+radius = 5.0
+
+[node name="RockB" type="StaticBody2D"]
+script = ExtResource("1_oeghy")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(20, 28)
+shape = SubResource("CircleShape2D_sos1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-16, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_f65ia")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(18, 24)
+script = ExtResource("3_nyljm")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-1, 7)
+polygon = PackedVector2Array(-20, -5, 23, -5, 26, -11, -26, -11)
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="placement_eligibility_changed" from="Area2D" to="." method="_on_area_2d_placement_eligibility_changed"]

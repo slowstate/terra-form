@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bviyhrp7ai7vb"
-path="res://.godot/imported/sunflower.png-b4cb655d0fe67b558210f1fdba71e309.ctex"
+uid="uid://bom3ss30oc32l"
+path="res://.godot/imported/forest_shrine.png-ca7d2dd2192c89e93967fa3a4f9d32ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plants/sunflower.png"
-dest_files=["res://.godot/imported/sunflower.png-b4cb655d0fe67b558210f1fdba71e309.ctex"]
+source_file="res://assets/environments/forest_shrine.png"
+dest_files=["res://.godot/imported/forest_shrine.png-ca7d2dd2192c89e93967fa3a4f9d32ca.ctex"]
 
 [params]
 

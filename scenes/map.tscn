@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://8kg8wtii3umc"]
+
+[sub_resource type="GDScript" id="GDScript_uwwja"]
+script/source = "extends Control
+
+#@onready var grid_container = $GridContainer
+#
+#var map_panel_scene = preload(\"res://scenes/map_panel.tscn\")
+#
+## Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+	#pass
+#
+#func setup(columns, rows, position_x, position_y):
+	#var size = rows * columns
+	#grid_container.columns = columns
+	#grid_container.position = Vector2(position_x, position_y)
+	#
+	#for i in size:
+		#var map_panel = map_panel_scene.instantiate()
+		#grid_container.add_child(map_panel)
+#
+#func setInvisible(isInvisible: bool):
+	#print(\"children_size: \" + str(grid_container.get_children().size()))
+	#print(\"first child modulate: \" + str(grid_container.get_child(0).modulate))
+	#for i in grid_container.get_children().size():
+		#if isInvisible:
+			#grid_container.get_child(i).modulate = Color(1, 1, 1, 1)
+		#else:
+			#grid_container.get_child(i).modulate = Color(1, 1, 1, 1)
+		#
+	#print(\"first child modulate: \" + str(grid_container.get_child(0).modulate))
+"
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_uwwja")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1

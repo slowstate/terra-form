@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjq2mkqhkdsh8"]
+
+[ext_resource type="Script" path="res://scripts/catalogue_ui.gd" id="1_q40qc"]
+[ext_resource type="Texture2D" uid="uid://crfgfmua5dtik" path="res://assets/left_click_ui.png" id="2_e2do6"]
+[ext_resource type="Texture2D" uid="uid://c3od4lb30av2t" path="res://assets/right_click_ui.png" id="3_ay7af"]
+
+[node name="CatalogueUi" type="Control"]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q40qc")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 0.133333)
+polygon = PackedVector2Array(-10, -10, 150, -10, 150, 600, -10, 600)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 4
+
+[node name="HideCatalogueUiButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 570.0
+offset_right = 144.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 10
+text = "Hide UI"
+
+[node name="ControlsUI" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 550.0
+offset_right = 40.0
+offset_bottom = 590.0
+
+[node name="SelectPlaceLabel" type="Label" parent="ControlsUI"]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 47.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 8
+text = "Select/Place"
+horizontal_alignment = 1
+
+[node name="SelectPlaceUI" type="Sprite2D" parent="ControlsUI"]
+position = Vector2(8, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_e2do6")
+centered = false
+
+[node name="RemoveLabel" type="Label" parent="ControlsUI"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 36.0
+offset_right = 86.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 8
+text = "Remove"
+horizontal_alignment = 1
+
+[node name="RemoveUI" type="Sprite2D" parent="ControlsUI"]
+position = Vector2(53, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ay7af")
+centered = false
+
+[connection signal="mouse_exited" from="HideCatalogueUiButton" to="." method="_on_hide_catalogue_ui_button_mouse_exited"]
+[connection signal="pressed" from="HideCatalogueUiButton" to="." method="_on_hide_catalogue_ui_button_pressed"]

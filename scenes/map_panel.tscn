@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://doumt7i3tnuos"]
+
+[ext_resource type="Script" path="res://scripts/map_panel.gd" id="1_fopmd"]
+
+[node name="MapPanel" type="PanelContainer"]
+script = ExtResource("1_fopmd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+expand_mode = 1
